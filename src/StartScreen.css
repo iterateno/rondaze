@@ -1,0 +1,75 @@
+/* src/StartScreen.css */
+.start-screen {
+    display: flex;
+    background-color: var(--oxford-blue);
+    color: var(--white-smoke);
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-content {
+    text-align: center;
+}
+
+.start-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.start-button,
+.tutorial-button,
+.highscores-button {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    color: var(--white-smoke);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-button {
+    background-color: var(--neon-turquise);
+    color: black
+}
+
+.tutorial-button {
+    background-color: var(--neon-turquise);
+    color: black
+}
+
+.highscores-button {
+    background-color: var(--neon-turquise);
+    color: black
+}
+
+.start-title {
+    color: var(--neon-turquise);
+}
+
+.start-button:hover {
+    background-color: var(--oxford-blue);
+    color: white;
+    opacity: 0.9;
+}
+
+
+
+.tutorial-button:hover {
+    background-color: var(--oxford-blue);
+    color: white;
+    opacity: 0.9;
+}
+
+.highscores-button:hover {
+    background-color: var(--oxford-blue);
+    color: white;
+    opacity: 0.9
+}

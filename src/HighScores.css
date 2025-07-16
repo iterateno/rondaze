@@ -1,0 +1,54 @@
+/* HighScores.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+
+  text-align: center;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 1000px;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #61dafb;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+button {
+  font-size: 1em;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #444;
+  color: white;
+}
+
+button:hover {
+  background-color: #61dafb;
+  color: #282c34;
+}
+
+button:focus {
+  outline: none;
+}
