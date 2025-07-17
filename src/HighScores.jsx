@@ -5,7 +5,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './HighScores.css';
 import SaveHighScoreModal from './SaveHighScoreModal';
 
-const API_URL = 'http://localhost:3002/api/highscores';
+const API_URL = process.env.REACT_APP_API_URL + '/api/highscores';
 
 // Create a dark theme for the DataGrid
 const darkTheme = createTheme({
