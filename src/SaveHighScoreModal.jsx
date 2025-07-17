@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SaveHighScoreModal.css';
 
-const API_URL = 'http://localhost:3002/api/highscores';
+const API_URL = process.env.REACT_APP_API_URL + '/api/highscores';
 
 const SaveHighScoreModal = ({ score, refetch }) => {
     const [name, setName] = useState('');
