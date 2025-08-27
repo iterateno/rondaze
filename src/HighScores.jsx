@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { DataGrid } from '@mui/x-data-grid';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { DataGrid } from '@mui/x-data-grid';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './HighScores.css';
 import SaveHighScoreModal from './SaveHighScoreModal';
-
-const API_URL = process.env.REACT_APP_API_URL + '/api/highscores';
 
 // Create a dark theme for the DataGrid
 const darkTheme = createTheme({
@@ -44,6 +42,8 @@ const columns = [
 const HighScores = () => {
   const [highScores, setHighScores] = useState([]);
   const [refetch, setRefetch] = useState(false);
+
+  const API_URL = process.env.API_URL + '/api/highscores';
 
   useEffect(() => {
     const fetchHighScores = async () => {

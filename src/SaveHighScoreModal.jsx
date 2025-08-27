@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './SaveHighScoreModal.css';
 
-const API_URL = process.env.REACT_APP_API_URL + '/api/highscores';
 
 const SaveHighScoreModal = ({ score, refetch }) => {
     const [name, setName] = useState('');
     const [showModal, setShowModal] = useState(true);
     const [error, setError] = useState('');
+    
+    const API_URL = process.env.API_URL + '/api/highscores';
 
     const handleSave = async () => {
         if (!name.trim()) {
