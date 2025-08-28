@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './HighScores.css';
 import SaveHighScoreModal from './SaveHighScoreModal';
+import config from './config';
 
 // Create a dark theme for the DataGrid
 const darkTheme = createTheme({
@@ -43,12 +44,10 @@ const HighScores = () => {
   const [highScores, setHighScores] = useState([]);
   const [refetch, setRefetch] = useState(false);
 
-  const API_URL = process.env.API_URL + '/api/highscores';
-
   useEffect(() => {
     const fetchHighScores = async () => {
       try {
-        const response = await fetch(API_URL);
+        const response = await fetch(config.API_URL + '/api/highscores');
         if (!response.ok) {
           throw new Error('Failed to fetch high scores');
         }

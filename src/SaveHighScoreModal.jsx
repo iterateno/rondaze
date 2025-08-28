@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import './SaveHighScoreModal.css';
+import config from './config';
 
 
 const SaveHighScoreModal = ({ score, refetch }) => {
     const [name, setName] = useState('');
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(score > 0);
     const [error, setError] = useState('');
-    
-    const API_URL = process.env.API_URL + '/api/highscores';
 
     const handleSave = async () => {
         if (!name.trim()) {
@@ -16,7 +15,7 @@ const SaveHighScoreModal = ({ score, refetch }) => {
         }
 
         try {
-            const response = await fetch(API_URL, {
+            const response = await fetch(config.API_URL + '/api/highscores', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
