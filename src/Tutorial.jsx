@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { startGame } from './game/game';
+import { CANVAS } from './game/constants.js';
 import './Tutorial.css';
 import KeyboardKey from './KeyboardKey';
 
@@ -35,8 +36,8 @@ const Tutorial = () => {
         const canvas = document.getElementById('tutorialCanvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            canvas.width = CANVAS.WIDTH;
+            canvas.height = CANVAS.HEIGHT;
 
             const gameInstance = startGame(canvas, ctx, () => {
                 const canvas = document.getElementById('tutorialCanvas');
@@ -52,14 +53,7 @@ const Tutorial = () => {
 
             setGame(gameInstance);
 
-            const handleResize = () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            };
-            window.addEventListener('resize', handleResize);
-
             return () => {
-                window.removeEventListener('resize', handleResize);
                 if (gameInstance && gameInstance.cleanup) {
                     gameInstance.cleanup();
                 }

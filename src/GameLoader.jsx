@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { startGame } from './game/game.js';
+import { CANVAS } from './game/constants.js';
 import './GameLoader.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -32,25 +33,18 @@ const GameLoader = () => {
             const canvas = canvasRef.current;
             const ctx = canvas.getContext('2d');
 
-            // Resize the canvas to fill the screen
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            // Set canvas to fixed size
+            canvas.width = CANVAS.WIDTH;
+            canvas.height = CANVAS.HEIGHT;
 
             setScore(startGame(canvas, ctx, navigate));
-
-            const handleResize = () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            };
 
             const handleGameOver = () => {
             };
 
-            window.addEventListener("resize", handleResize);
             window.addEventListener("gameOver", handleGameOver);
 
             return () => {
-                window.removeEventListener("resize", handleResize);
                 window.removeEventListener("gameOver", handleGameOver);
             };
         }
@@ -71,7 +65,9 @@ const GameLoader = () => {
                     <button onClick={handleStartGame}>Start Game</button>
                 </div>
             ) : (
-                <canvas ref={canvasRef} id="canvas"></canvas>
+                <div className="game-container">
+                    <canvas ref={canvasRef} id="canvas"></canvas>
+                </div>
             )}
         </div>
     );

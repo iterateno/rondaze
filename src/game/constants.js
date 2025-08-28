@@ -51,5 +51,11 @@ export const ATMOSPHERE_OPACITY = 0.06;
 export const GRAVITY_CONSTANT = 9.81;  // Gravity constant
 export const DAMPING_FACTOR = 0.99;    // Damping factor for reducing angular velocity
 
+// Canvas size constants
+export const CANVAS = {
+    WIDTH: 1200,
+    HEIGHT: 900
+};
+
 export const BOOM_RADIUS = 56; // Boom radius
 export const NUKE_FUSE = 400; // Fuse length in frames

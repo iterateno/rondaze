@@ -15,7 +15,7 @@ const SaveHighScoreModal = ({ score, refetch }) => {
         }
 
         try {
-            const response = await fetch(config.API_URL + '/api/highscores', {
+            const response = await fetch('https://rondaze-server-749067412044.europe-west1.run.app/api/highscores', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
