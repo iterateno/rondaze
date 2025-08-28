@@ -53,8 +53,8 @@ export const DAMPING_FACTOR = 0.99;    // Damping factor for reducing angular ve
 
 // Canvas size constants
 export const CANVAS = {
-    WIDTH: 1200,
-    HEIGHT: 900
+    WIDTH: 1500,
+    HEIGHT: 800
 };
 
 export const BOOM_RADIUS = 56; // Boom radius

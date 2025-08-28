@@ -92,6 +92,7 @@ const HighScores = () => {
             pageSize={10}
             rowsPerPageOptions={[10]}
             disableSelectionOnClick
+            maxWidth={100}
             initialState={{
               sorting: {
                 sortModel: [{ field: 'score', sort: 'desc' }],
