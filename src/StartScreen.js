@@ -1,7 +1,7 @@
 // src/StartScreen.js
-import React, { useEffect, useRef } from 'react';
-import './StartScreen.css';
+import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './StartScreen.css';
 
 const StartScreen = ({ onStart }) => {
     const navigate = useNavigate();
@@ -76,15 +76,16 @@ const StartScreen = ({ onStart }) => {
 
         animate();
 
-        // Handle window resize
-        const handleResize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-        window.addEventListener('resize', handleResize);
+        function resizeGameCanvas() {
+        const container = document.querySelector('.game-container');
+        const canvas = container.querySelector('canvas');
+        canvas.width = container.offsetWidth;
+        canvas.height = container.offsetHeight;
+        }
+        window.addEventListener('resize', resizeGameCanvas);
 
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', resizeGameCanvas);
         };
     }, []);
 

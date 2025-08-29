@@ -1,9 +1,9 @@
-import { SPACECRAFT } from './constants.js';
-import { LEVELS, TUTORIAL_LEVELS } from "./levels.js";
-import { createInputHandlers } from './input.js';
-import { createGameObjects } from './gameObjects.js';
 import { handleCollisions } from './collision.js';
-import { drawPlanet, drawSpacecraft, drawScore, drawPauseScreen } from './drawing.js';
+import { SPACECRAFT } from './constants.js';
+import { drawPauseScreen, drawPlanet, drawScore, drawSpacecraft } from './drawing.js';
+import { createGameObjects } from './gameObjects.js';
+import { createInputHandlers } from './input.js';
+import { LEVELS, TUTORIAL_LEVELS } from "./levels.js";
 
 let score = 0;
 

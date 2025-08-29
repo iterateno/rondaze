@@ -37,6 +37,7 @@ const GameLoader = () => {
             canvas.width = CANVAS.WIDTH;
             canvas.height = CANVAS.HEIGHT;
 
+
             setScore(startGame(canvas, ctx, navigate));
 
             const handleGameOver = () => {
@@ -65,7 +66,7 @@ const GameLoader = () => {
                     <button onClick={handleStartGame}>Start Game</button>
                 </div>
             ) : (
-                <div className="game-container">
+                <div className="game-container" >
                     <canvas ref={canvasRef} id="canvas"></canvas>
                 </div>
             )}
