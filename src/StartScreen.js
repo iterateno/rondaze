@@ -91,7 +91,7 @@ const StartScreen = ({ onStart }) => {
 
     return (
         <div className="start-screen">
-            <canvas ref={canvasRef} style={{position: 'absolute', top: 0, left: 0, zIndex: 0}} />
+            <canvas ref={canvasRef}  />
             <div className="start-content" style={{zIndex: 10000}}>
                 <h1 className="start-title">Welcome to Rondaze!</h1>
                 <div className="button-container">
