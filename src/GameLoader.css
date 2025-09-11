@@ -20,21 +20,18 @@
 }
 
 .game-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-  width: 100%;
-  height: 100%;
   background-color: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .game-container canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-  max-width: 100vw;
-  max-height: 100vh;
-  image-rendering: pixelated; /* prevents blurry pixel art */
+    width: 100vw;
+    max-width: 178vh;
+    max-height: 100vh;
+    aspect-ratio: 16 / 9;
 }
+

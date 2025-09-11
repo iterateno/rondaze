@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { startGame } from './game/game.js';
-import { CANVAS } from './game/constants.js';
-import './GameLoader.css';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CANVAS } from './game/constants.js';
+import { startGame } from './game/game.js';
+import './GameLoader.css';
 
 const GameLoader = () => {
     const canvasRef = useRef(null);
@@ -56,21 +56,19 @@ const GameLoader = () => {
     };
 
     return (
-        <div>
-            {showInfo ? (
-                <div className="info-screen">
-                    <h2>Game Instructions</h2>
-                    <p>Use the arrow keys for steering.</p>
-                    <p>Press the spacebar to launch nukes.</p>
-                    <p>Stop asteroids from hitting the planet.</p>
-                    <button onClick={handleStartGame}>Start Game</button>
-                </div>
-            ) : (
-                <div className="game-container" >
-                    <canvas ref={canvasRef} id="canvas"></canvas>
-                </div>
-            )}
-        </div>
+        showInfo ? (
+            <div className="info-screen">
+                <h2>Game Instructions</h2>
+                <p>Use the arrow keys for steering.</p>
+                <p>Press the spacebar to launch nukes.</p>
+                <p>Stop asteroids from hitting the planet.</p>
+                <button onClick={handleStartGame}>Start Game</button>
+            </div>
+        ) : (
+            <div className="game-container" >
+                <canvas ref={canvasRef} id="canvas"></canvas>
+            </div>
+        )
     );
 };
 
