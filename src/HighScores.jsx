@@ -84,7 +84,7 @@ const HighScores = () => {
     <div className="container">
       <SaveHighScoreModal score={score} refetch={() => setRefetch(!refetch)} />
       <h1>High Scores</h1>
-      <div style={{ height: 400, width: '100%', backgroundColor: 'var(--oxford-blue)' }}>
+      <div style={{ height: 400, width: '100%', backgroundColor: 'black' }}>
         <ThemeProvider theme={darkTheme}>
           <DataGrid
             rows={highScores}
@@ -109,7 +109,6 @@ const HighScores = () => {
                 borderBottom: '1px solid var(--battleship-gray)',
               },
               '& .MuiDataGrid-footerContainer': {
-                backgroundColor: 'var(--oxford-blue)',
                 borderTop: '2px solid var(--battleship-gray)',
               },
             }}
