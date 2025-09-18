@@ -1,6 +1,9 @@
 .info-screen {
   text-align: center;
   margin-top: 50px;
+  padding: 50px;
+  border-radius: 10px;
+  background-color:black;
 }
 
 .info-screen h1 {

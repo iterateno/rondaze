@@ -59,8 +59,36 @@ const GameLoader = () => {
         showInfo ? (
             <div className="info-screen">
                 <h2>Game Instructions</h2>
-                <p>Use the arrow keys for steering.</p>
-                <p>Press the spacebar to launch nukes.</p>
+                <p>
+                    Use the arrow keys for steering.<br />
+                    <span style={{ display: 'inline-block', margin: '10px 0' }}>
+                        {/* Arrow keys SVG */}
+                        <svg width="90" height="60" viewBox="0 0 90 60" style={{ verticalAlign: 'middle' }}>
+                            {/* Up Arrow */}
+                            <rect x="35" y="5" width="20" height="20" rx="4" fill="#eee" stroke="#888" />
+                            <text x="45" y="15" textAnchor="middle" fontSize="16" fill="#333" fontFamily="sans-serif" dominantBaseline="middle">↑</text>
+                            {/* Left Arrow */}
+                            <rect x="10" y="30" width="20" height="20" rx="4" fill="#eee" stroke="#888" />
+                            <text x="20" y="40" textAnchor="middle" fontSize="16" fill="#333" fontFamily="sans-serif" dominantBaseline="middle">←</text>
+                            {/* Down Arrow */}
+                            <rect x="35" y="30" width="20" height="20" rx="4" fill="#eee" stroke="#888" />
+                            <text x="45" y="40" textAnchor="middle" fontSize="16" fill="#333" fontFamily="sans-serif" dominantBaseline="middle">↓</text>
+                            {/* Right Arrow */}
+                            <rect x="60" y="30" width="20" height="20" rx="4" fill="#eee" stroke="#888" />
+                            <text x="70" y="40" textAnchor="middle" fontSize="16" fill="#333" fontFamily="sans-serif" dominantBaseline="middle">→</text>
+                        </svg>
+                    </span>
+                </p>
+                <p>
+                    Press the spacebar to launch nukes.<br />
+                    <span style={{ display: 'inline-block', margin: '10px 0' }}>
+                        {/* Spacebar SVG */}
+                        <svg width="100" height="30" viewBox="0 0 100 30" style={{ verticalAlign: 'middle' }}>
+                            <rect x="5" y="5" width="90" height="20" rx="6" fill="#eee" stroke="#888" />
+                            <text x="50" y="20" textAnchor="middle" fontSize="14" fill="#333" fontFamily="sans-serif" dy="1">Space</text>
+                        </svg>
+                    </span>
+                </p>
                 <p>Stop asteroids from hitting the planet.</p>
                 <button onClick={handleStartGame}>Start Game</button>
             </div>
