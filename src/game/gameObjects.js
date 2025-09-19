@@ -1,5 +1,5 @@
-import { applyGravity, atmosphericDrag, areCirclesClose, areCirclesColliding } from "./physics.js";
-import { Nuke, Asteroid } from "./models.js";
+import { Asteroid, Nuke } from "./models.js";
+import { applyGravity, areCirclesClose, areCirclesColliding, atmosphericDrag } from "./physics.js";
 
 export function createGameObjects(planet, levelConfig) {
   let nukes = [];
@@ -151,7 +151,7 @@ export function createGameObjects(planet, levelConfig) {
         let distance = Math.sqrt(dx * dx + dy * dy);
 
         // Gravitational force magnitude
-        const gravitationalConstant = 0.1;
+        const gravitationalConstant = 0.03;
         const force = (gravitationalConstant * asteroid1.mass * asteroid2.mass) / (distance * distance);
 
         // Directional force components

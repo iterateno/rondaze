@@ -12,7 +12,7 @@ export const COLORS = {
 // Planet-specific constants
 export const PLANET = {
     RADIUS: 25,
-    MASS: 15,
+    MASS: 25,
     ATMOSPHERE: 100,
 };
 

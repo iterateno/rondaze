@@ -1,5 +1,5 @@
+import { ASTEROIDS, DAMPING_FACTOR, NUKES } from './constants.js';
 import { applyGravity } from './physics.js';
-import { ASTEROIDS, NUKES, DAMPING_FACTOR } from './constants.js';
 
 export function Nuke(x, y, velocity_x, velocity_y, angle, angularVelocity, planet) {
     this.x = x;
@@ -119,7 +119,7 @@ export function Asteroid(x, y, velocity_x, velocity_y, planet, radius) {
     this.velocity_x = velocity_x;
     this.velocity_y = velocity_y;
     this.radius = radius;
-    this.mass = radius * radius * (ASTEROIDS ? ASTEROIDS.MASS : 1);
+    this.mass = radius * radius * (ASTEROIDS ? ASTEROIDS.MASS : 1) / 5;
     this.planet = planet;
     this.angle = 0;
     this.angularVelocity = (Math.random() - 0.5) * 0.1; // Random angular velocity
