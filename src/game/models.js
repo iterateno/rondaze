@@ -176,9 +176,10 @@ export function Asteroid(x, y, velocity_x, velocity_y, planet, radius) {
 
         // Draw irregular asteroid shape
         ctx.beginPath();
-        ctx.moveTo(this.points[0].x, this.points[0].y);
+        const mult = this.radius / 15;
+        ctx.moveTo(this.points[0].x * mult, this.points[0].y * mult);
         for (let i = 1; i < this.points.length; i++) {
-            ctx.lineTo(this.points[i].x, this.points[i].y);
+            ctx.lineTo(this.points[i].x * mult, this.points[i].y * mult);
         }
         ctx.closePath();
         
@@ -204,17 +205,7 @@ export function Asteroid(x, y, velocity_x, velocity_y, planet, radius) {
             ctx.fill();
         }
         
-        // Add subtle texture/highlights
-        ctx.beginPath();
-        ctx.arc(
-            /* centerX */ this.radius * 0.2, 
-            /* centerY */ -this.radius * 0.3, 
-            /* radius */ this.radius * 0.1, 
-            /* startAngle */ 0, 
-            /* endAngle */ Math.PI * 2
-        );
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-        ctx.fill();
+       
         
         ctx.restore();
     };

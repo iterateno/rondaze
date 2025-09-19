@@ -179,7 +179,7 @@ export function createGameObjects(planet, levelConfig) {
 
           // Combine masses and calculate new radius using square root of sum of squares
           asteroid1.mass += asteroid2.mass;
-          asteroid1.radius = Math.sqrt(asteroid1.radius * asteroid1.radius + asteroid2.radius * asteroid2.radius);
+          asteroid1.radius = Math.pow(asteroid1.radius * asteroid1.radius * asteroid1.radius + asteroid2.radius * asteroid2.radius * asteroid2.radius, 1/3);
           
           asteroids.splice(j, 1);
         }

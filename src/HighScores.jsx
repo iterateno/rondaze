@@ -40,6 +40,8 @@ const columns = [
   }
 ];
 
+
+
 const HighScores = () => {
   const [highScores, setHighScores] = useState([]);
   const [refetch, setRefetch] = useState(false);
