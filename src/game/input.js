@@ -1,5 +1,7 @@
-export function createInputHandlers(spacecraft, isTutorial) {
+export function createInputHandlers(spacecraft, isTutorial, isMobile = false) {
   let arrowUpPressed = false;
+  let leftPressed = false;
+  let rightPressed = false;
 
   function handleKeyDown(event) {
     // Prevent Enter key from being processed in tutorial mode
@@ -12,10 +14,16 @@ export function createInputHandlers(spacecraft, isTutorial) {
     
     switch (event.code) {
       case "ArrowLeft":
-        spacecraft.angular_velocity -= 0.01;
+        if (!leftPressed) {
+          leftPressed = true;
+          spacecraft.angular_velocity -= 0.01;
+        }
         break;
       case "ArrowRight":
-        spacecraft.angular_velocity += 0.01;
+        if (!rightPressed) {
+          rightPressed = true;
+          spacecraft.angular_velocity += 0.01;
+        }
         break;
       case "ArrowUp":
         arrowUpPressed = true;
@@ -28,6 +36,8 @@ export function createInputHandlers(spacecraft, isTutorial) {
         if (isTutorial) {
           event.stopPropagation();
         }
+        // Prevent default to avoid page scrolling on mobile browsers
+        event.preventDefault();
         return true; // Signal that a nuke should be fired
       case "KeyP":
       case "p":
@@ -39,14 +49,46 @@ export function createInputHandlers(spacecraft, isTutorial) {
   }
 
   function handleKeyUp(event) {
-    if (event.code === "ArrowUp") {
-      arrowUpPressed = false;
+    switch (event.code) {
+      case "ArrowUp":
+        arrowUpPressed = false;
+        break;
+      case "ArrowLeft":
+        leftPressed = false;
+        break;
+      case "ArrowRight":
+        rightPressed = false;
+        break;
     }
   }
+
+  // Touch event handlers for mobile
+  const touchHandlers = isMobile ? {
+    handleTouchStart: (touchType) => {
+      const event = new KeyboardEvent('keydown', {
+        code: touchType,
+        key: touchType,
+        bubbles: true
+      });
+      return handleKeyDown(event);
+    },
+    
+    handleTouchEnd: (touchType) => {
+      const event = new KeyboardEvent('keyup', {
+        code: touchType,
+        key: touchType,
+        bubbles: true
+      });
+      handleKeyUp(event);
+    }
+  } : {};
 
   return {
     handleKeyDown,
     handleKeyUp,
-    isArrowUpPressed: () => arrowUpPressed
+    isArrowUpPressed: () => arrowUpPressed,
+    isLeftPressed: () => leftPressed,
+    isRightPressed: () => rightPressed,
+    ...touchHandlers
   };
 } 

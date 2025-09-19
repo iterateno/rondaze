@@ -51,10 +51,22 @@ export const ATMOSPHERE_OPACITY = 0.06;
 export const GRAVITY_CONSTANT = 9.81;  // Gravity constant
 export const DAMPING_FACTOR = 0.99;    // Damping factor for reducing angular velocity
 
+// Mobile-specific constants
+export const MOBILE = {
+    TOUCH_SENSITIVITY: 1.2,  // Multiplier for touch controls sensitivity
+    MIN_TOUCH_SIZE: 44,      // Minimum touch target size in pixels
+    CONTROL_OPACITY: 0.7,    // Opacity for mobile controls
+    VIBRATION_ENABLED: true  // Enable haptic feedback if available
+};
+
 // Canvas size constants
 export const CANVAS = {
     WIDTH: 1500,
-    HEIGHT: 800
+    HEIGHT: 800,
+    // Mobile responsive constants
+    MIN_WIDTH: 320,
+    MIN_HEIGHT: 568,
+    MOBILE_ASPECT_RATIO: 16 / 9
 };
 
 export const BOOM_RADIUS = 56; // Boom radius

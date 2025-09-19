@@ -12,7 +12,7 @@ export function getScore() {
 }
 
 export function startGame(canvas, ctx, navigate, options = {}) {
-  const { isTutorial = false, level = 1 } = options;
+  const { isTutorial = false, level = 1, isMobile = false } = options;
   const levelConfig = isTutorial ? TUTORIAL_LEVELS[level] : LEVELS[level];
   score = 0;
 
@@ -50,7 +50,7 @@ export function startGame(canvas, ctx, navigate, options = {}) {
   };
 
   const gameObjects = createGameObjects(planet, levelConfig);
-  const inputHandlers = createInputHandlers(spacecraft, isTutorial);
+  const inputHandlers = createInputHandlers(spacecraft, isTutorial, isMobile);
 
   // In tutorial mode, provide a custom navigate function that doesn't actually navigate away
   const safeNavigate = isTutorial ? 
