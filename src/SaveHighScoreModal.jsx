@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SaveHighScoreModal.css';
-import config from './config';
 
 
 const SaveHighScoreModal = ({ score, refetch }) => {
+    const navigate = useNavigate();
     const [name, setName] = useState('');
     const [showModal, setShowModal] = useState(score > 0);
     const [error, setError] = useState('');
@@ -36,6 +37,11 @@ const SaveHighScoreModal = ({ score, refetch }) => {
         }
     };
 
+    const handleRetry = () => {
+        setShowModal(false);
+        navigate('/game'); // Navigate to the game page like in StartScreen
+    };
+
     const close = async () => {
         // Save the score before closing if name is entered
         if (name.trim()) {
@@ -52,13 +58,16 @@ const SaveHighScoreModal = ({ score, refetch }) => {
                         <h1>Game Over</h1>
                         <h2>Your Score: {score}</h2>
                         {error && <p className="error">{error}</p>}
-                        <input
-                            type="text"
-                            placeholder="Enter your name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                        <button onClick={handleSave}>Save</button>
+                        <div width="600px">
+                            <input
+                                type="text"
+                                placeholder="Enter your name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                        </div>
+                        <button  onClick={handleSave}>Save</button>
+                        <button  onClick={handleRetry}>Retry</button>
                         <button onClick={close}>Cancel</button>
                     </div>
                 </div>

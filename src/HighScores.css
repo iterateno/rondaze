@@ -37,13 +37,12 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  background-color: #444;
-  color: white;
+  background-color: #61dafb;
+  color: #282c34;
 }
 
 button:hover {
-  background-color: #61dafb;
-  color: #282c34;
+  background-color: #21a1f1;
 }
 
 button:focus {

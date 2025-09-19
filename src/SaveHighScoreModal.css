@@ -25,12 +25,10 @@
     padding: 10px;
     border-radius: 5px;
     border: none;
-    width: 80%;
+    width: 90%;
   }
   
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
+  .modal-content button {
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -38,6 +36,10 @@
     color: #282c34;
     font-size: 1em;
     transition: background-color 0.3s ease;
+    width: 90px;
+    margin: 10px 5px;
+    padding: 10px 20px;
+    display: inline-block;
   }
   
   button:hover {
